@@ -41,13 +41,12 @@ type Position = {
   y: number;
 };
 
-
 const containerEl = document.querySelector<HTMLDivElement>("#stage");
 if (!containerEl) {
   throw new Error("Missing #stage container");
 }
 
-
+// All main logic and dependent functions are inside the IIFE
 (async () => {
   const app = new Application();
   await app.init({
@@ -78,6 +77,9 @@ if (!containerEl) {
   const highlightLayer = new Graphics();
 
   world.addChild(edgeLayer, animEdgeLayer, highlightLayer, nodeLayer, exitLayer);
+
+  // All dependent functions and event handlers using collapsed, children, etc. are inside this IIFE
+  // ...existing code...
 
   const nodeViews = new Map<number, Graphics>();
   const labelViews = new Map<number, Text>();
