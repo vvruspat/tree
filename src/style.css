@@ -1,0 +1,66 @@
+@import url(\"https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&family=Work+Sans:wght@400;500;600&display=swap\");
+
+:root {
+  color-scheme: dark;
+  font-family: "Work Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at 20% 20%, #12091f 0%, #0b0616 55%, #05040a 100%);
+  color: #eef6ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: transparent;
+}
+
+#app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.hud {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 24px 10px;
+  letter-spacing: 0.02em;
+}
+
+.title {
+  font-family: "Fraunces", "Georgia", serif;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.hint {
+  font-size: 14px;
+  color: #a3b7cc;
+}
+
+#stage {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 78px);
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 0, 200, 0.15), transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(0, 240, 255, 0.16), transparent 55%),
+    radial-gradient(circle at 50% 80%, rgba(124, 77, 255, 0.2), transparent 60%);
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+canvas {
+  display: block;
+}
